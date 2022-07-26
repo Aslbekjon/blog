@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<h1>All users</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Rasm</th>
+        <th scope="col">Foydalanuvchi nomi</th>
+        <th scope="col">So'nggi tashrif</th>
+        <th scope="col">A'zo bo'lgan vaqti</th>
+    </tr>
+    </thead>
+
+{% for user in users %}
+    <tbody>
+    <tr>
+        {% if user.image %}
+        <td><img  width="100px" src="{{user.image.url}}" style="border-radius:50px"></td>
+        {%else%}
+        <td>Foydalanuvchi rasmi</td>
+        {%endif%}
+        <td><a href="{% url 'user_detail' user.pk %}">{{user.username}}</a></td>
+        <td>{{user.last_login}}</td>
+        <td>{{user.date_joined}}</td>
+    </tr>
+    </tbody>
+
+{%endfor%}
+
+</table>
+{% endblock%}

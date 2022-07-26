@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 align="center">Barcha kategoriyalar</h2>
+
+{% for category in categories %}
+<div class="row">
+    <div class="col-lg-2">
+        <img  width="100px" src="{{category.image.url}}">
+    </div>
+    <div class="col-lg-5">
+        <h2>{{category.name}}</h2>
+        {{category.created_at}}<br>
+        {{category.content|truncatechars:"100"}}
+    </div>
+    <div class="col-lg-5" align="right" >
+        <button style="margin-right:30px" type="button" class="btn btn-warning">A'zo bo'lish</button>
+    </div>
+</div>
+{%endfor%}
+
+{% endblock %}

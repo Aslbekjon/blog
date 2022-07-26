@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{%if category%}
+<h2>{{category.name}}ga tegishli bloglar</h2>
+{%elif tag%}
+<h2>{{tag.name}}ga tegishli bloglar</h2>
+{%else%}
+<h2 align="center">All Blogs</h2>
+{%endif%}
+{% for blog in blogs%}
+<div class="card" style="width: 100%;">
+    <div class="card-body">
+        <h5 class="card-title"><a class="title-link" href="{% url 'blog_detail' blog.slug %}">{{blog.title}}</a></h5>
+        <span class="blog-category">{{blog.category}}</span>  <span class="blog-time">{{blog.created_at|date:"d.m.Y / H:i"}}</span>
+        <img src="{{blog.image.url}}" style="width:100%; height: 25rem;">
+        <p class="card-text">{{blog.content|truncatechars:'400'}}</p>
+        <div class="row">
+            <div class="col-lg-9">
+                <span class="for-user">
+                    <span class="blog-user">{{blog.user}}:</span>
+            </span>
+                {% for tag in blog.tags.all %}
+                <span class="for-tags">
+                    <span class="blog-tag">{{ tag.name }}</span>
+                </span>
+                {% endfor%}
+            </div>
+            <div class="col-lg-3">
+                <span class="for-views">
+                Views: {{blog.views}}
+            </span>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+{%endfor%}
+{% endblock %}

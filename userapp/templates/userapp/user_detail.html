@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+<div class="profile">
+    {% if user1.image %}
+
+    <img src="{{user1.image.url}}" width="150px" style="border-radius:70px; margin-top:3%">
+
+    {% else %}
+
+    Foydalanuvchi rasmi
+
+    {%endif%}
+    <br>
+    {{user1.username}}
+    <br>
+    First Name:{{user1.first_name}}<br>
+    Last Name:{{user1.last_name}}<br>
+    Email:{{user1.email}}<br>
+    Phone Number:{{user1.phone_number}}<br>
+    Short biography:{{user1.bio}}<br>
+    {% if user1 == user %}
+     <br>
+    <div>
+        <a class="btn btn-success" href="{% url 'profile_update' %}">Update Profile</a>
+        <a class="btn btn-danger" href="{% url 'profile_delete'%}">Delete Profile</a>
+    </div>
+    {%endif%}
+</div>
+{% endblock%}

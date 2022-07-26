@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <label id="tags">tags:</label>
+    <input  value="{{satr}}" for="tags"><br><br>
+    <button type="submit" class="btn btn-primary">update blog</button>
+</form>
+{% endblock %}

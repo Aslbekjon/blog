@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card" style="width: 100%;">
+    <div class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+
+        <img src="{{blog.image.url}}" style="width:100%; height: 25rem;">
+        <p class="card-text">{{blog.content}}</p>
+        <div class="row">
+            <div class="col-lg-10">
+
+                {% for tag in blog.tags.all %}
+                <span class="for-tags">
+                    <span class="blog-tag">{{ tag.name }}</span>
+                    <span class="blog-category" style="margin-left:8px">{{blog.category}}</span>
+        <span class="blog-time" style="margin-left">{{blog.created_at|date:"d.m.Y / H:i"}}</span>
+                </span>
+
+            </div>
+            <div class="col-lg-2">
+                <span class="for-views">
+                Views: {{blog.views}}
+            </span>
+            </div>
+        </div>
+        {% if user == blog.user %}
+            <div style="text-align:right">
+                <a class="btn btn-success" href="{% url 'update_blog' blog.slug %}"> Update Blog </a>
+                <a class="btn btn-danger" href="#"> Delete Blog</a>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+{%endfor%}
+{% endblock %}

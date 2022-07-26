@@ -1,0 +1,46 @@
+.container-fluid {
+    margin-left:7%;
+    margin-right:7%;
+}
+.blog-category {
+    color:gray;
+    font-weight:bold;
+}
+.blog-time {
+    color:gray;
+}
+.blog-user {
+    color:gray;
+    font-weight:bold;
+}
+.blog-tag {
+    color:gray;
+    text-decoration:underline;
+    margin-left:8px;
+}
+.for-views {
+    color:gray;
+    font-weight:bold;
+
+}
+.card {
+    margin-bottom:3%;
+}
+.list-group {
+    margin-top:11%;
+}
+.title-link {
+    text-decoration: none;
+    color:green;
+}
+
+.profile {
+    margin:auto;
+    width:60%;
+    height:90%;
+    text-align:center;
+    border-style:solid;
+    border-radius:10px;
+    margin-top:7%;
+    background-color:#e2efff;
+}
